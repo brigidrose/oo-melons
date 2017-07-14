@@ -64,3 +64,20 @@ class InternationalMelonOrder(AbstractMelonOrder):
            total += 3
 
         return total
+
+        #Im a lazy child
+
+class GovernmentMelonOrder(AbstractMelonOrder):
+    """ A melon order from the government."""
+
+    def __init__(self, species, qty):
+        """Initialize melon order attributes."""
+        #change order type and tax
+        super(GovernmentMelonOrder, self).__init__(species, qty, "Domestic", 0)
+
+        self.passed_inspection = False
+
+    def mark_inspection(self, passed):
+        """Record the fact than an order has been shipped."""
+
+        self.passed_inspection = passed
